@@ -7,3 +7,5 @@
 *.gcda
 *.gcno
 *.gcov
+*.c++~
+*.h~
