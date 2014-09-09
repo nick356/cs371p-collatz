@@ -20,11 +20,25 @@
 // ----
 // read
 // ----
-TEST(Collatz, read) {
+TEST(Collatz, read_1) {
 	std::istringstream r("1 10\n");
 	const std::pair<int, int> p = collatz_read(r);
 	ASSERT_EQ( 1, p.first);
 	ASSERT_EQ(10, p.second);
+}
+
+TEST(Collatz, read_2){
+	std::istringstream r("110 200\n");
+	const std::pair<int, int> p = collatz_read(r);
+	ASSERT_EQ(110, p.first);
+	ASSERT_EQ(200, p.second);
+}
+
+TEST(Collatz, read_3){
+	std::istringstream r("1 1000000\n");
+	const std::pair<int, int> p = collatz_read(r);
+	ASSERT_EQ(1, p.first);
+	ASSERT_EQ(1000000, p.second);
 }
 // ----
 // eval
@@ -52,10 +66,22 @@ TEST(Collatz, eval_4) {
 // -----
 // print
 // -----
-TEST(Collatz, print) {
+TEST(Collatz, print_1) {
 	std::ostringstream w;
 	collatz_print(w, 1, 10, 20);
 	ASSERT_EQ("1 10 20\n", w.str());
+}
+
+TEST(Collatz, print_2) {
+	std::ostringstream w;
+	collatz_print(w, 1, 1000000, 20);
+	ASSERT_EQ("1 1000000 20\n", w.str());
+}
+
+TEST(Collatz, print_3) {
+	std::ostringstream w;
+	collatz_print(w, 100, 200, 125);
+	ASSERT_EQ("100 200 125\n", w.str());
 }
 
 // -----
