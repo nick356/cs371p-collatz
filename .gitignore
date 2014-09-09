@@ -1,3 +1,4 @@
+
 # This file is named "gitignore".
 # Rename it ".gitignore".
 # It is a listing of all files that git will ignore when a "git add" is performed.
@@ -6,10 +7,3 @@
 *.gcda
 *.gcno
 *.gcov
-*.h~
-*.c++~
-*makefile~
-*.gitignore~
-*.gitignore
-.nfs00000000015f130100000323
-.nfs000000000295242a0000030c
