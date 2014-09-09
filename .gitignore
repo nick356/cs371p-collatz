@@ -9,3 +9,4 @@
 *.gcov
 *.c++~
 *.h~
+*.gitignore~
