@@ -27,7 +27,7 @@ std::pair<int, int> collatz_read (std::istream& r) {
 // ------------
 int collatz_eval (int i, int j) {
 	// <your code>
-	return 1;
+	return 1;    
 }
 // -------------
 // collatz_print
