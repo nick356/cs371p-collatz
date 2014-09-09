@@ -9,3 +9,7 @@
 *.h~
 *.c++~
 *makefile~
+*.gitignore~
+*.gitignore
+.nfs00000000015f130100000323
+.nfs000000000295242a0000030c
