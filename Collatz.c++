@@ -26,8 +26,31 @@ std::pair<int, int> collatz_read (std::istream& r) {
 // collatz_eval
 // ------------
 int collatz_eval (int i, int j) {
-	// <your code>
-	return 1;    
+	if(i > j)
+		return -1;
+	int highest = 0;
+	int tempHighest = 1;
+	int calc = 0;
+	while(i <= j){
+		calc = i;
+		while(calc > 1){
+			if(calc % 2 == 0){
+				calc /= 2;
+				tempHighest++;
+			}else{
+				calc = 3*calc + 1;
+				tempHighest++;
+			}
+		}
+		
+		if(tempHighest > highest)
+			highest = tempHighest;
+
+		i++;
+		tempHighest = 1;
+	}
+
+	return highest;    
 }
 // -------------
 // collatz_print
