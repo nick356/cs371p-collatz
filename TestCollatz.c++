@@ -63,6 +63,26 @@ TEST(Collatz, eval_4) {
 	ASSERT_EQ(174, v);
 }
 
+TEST(Collatz, eval_5) {
+	const int v = collatz_eval(5, 10);
+	ASSERT_EQ(20, v);
+}
+
+TEST(Collatz, eval_6) {
+	const int v = collatz_eval(1, 1);
+	ASSERT_EQ(1, v);
+}
+
+TEST(Collatz, eval_7) {
+	const int v = collatz_eval(10, 20);
+	ASSERT_EQ(21, v);
+}
+
+TEST(Collatz, eval_8) {
+	const int v = collatz_eval(10, 20);
+	ASSERT_EQ(21, v);
+}
+
 // -----
 // print
 // -----
@@ -84,6 +104,71 @@ TEST(Collatz, print_3) {
 	ASSERT_EQ("100 200 125\n", w.str());
 }
 
+// -----
+// cycle_length
+// -----
+
+TEST(Collatz, cycle_length1){
+	int v = cycle_length(22);
+	ASSERT_EQ(16,v);
+}
+
+TEST(Collatz, cycle_length2){
+	int v = cycle_length(9);
+	ASSERT_EQ(20,v);
+}
+
+
+TEST(Collatz, cycle_length3){
+	int v = cycle_length(51);
+	ASSERT_EQ(25,v);
+}
+
+TEST(Collatz, cycle_length4){
+	int v = cycle_length(5);
+	ASSERT_EQ(6,v);
+}
+
+TEST(Collatz, cycle_length5){
+	int v = cycle_length(10);
+	ASSERT_EQ(7,v);
+}
+
+TEST(Collatz, cycle_length6){
+	int v = cycle_length(1);
+	ASSERT_EQ(1,v);
+}
+
+TEST(Collatz, cycle_length7){
+	int v = cycle_length(2);
+	ASSERT_EQ(2,v);
+}
+
+TEST(Collatz, cycle_length8){
+	int v = cycle_length(3);
+	ASSERT_EQ(8,v);
+}
+
+
+TEST(Collatz, cycle_length9){
+	int v = cycle_length(100);
+	ASSERT_EQ(26,v);
+}
+
+TEST(Collatz, cycle_length10){
+	int v = cycle_length(4);
+	ASSERT_EQ(3,v);
+}
+
+TEST(Collatz, cycle_length11){
+	int v = cycle_length(8);
+	ASSERT_EQ(4,v);
+}
+
+TEST(Collatz, cycle_length12){
+	int v = cycle_length(16);
+	ASSERT_EQ(5,v);
+}
 // -----
 // solve
 // -----

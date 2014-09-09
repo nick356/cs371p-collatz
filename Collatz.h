@@ -52,4 +52,12 @@ void collatz_print (std::ostream& w, int i, int j, int v);
 * @param w an std::ostream
 */
 void collatz_solve (std::istream& r, std::ostream& w);
+
+//--------------
+// cycle_length
+//--------------
+/**
+* @param i the number you wish to find the cycle length for
+*/
+int cycle_length(int i);
 #endif // Collatz_h

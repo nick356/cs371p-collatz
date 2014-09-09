@@ -9,7 +9,24 @@
 #include <cassert> // assert
 #include <iostream> // endl, istream, ostream
 #include <utility> // make_pair, pair
-#include "Collatz.h"
+
+
+
+int cycle_length(int i){
+	int cycleLength = 1;
+	while( i > 1){
+		if(i % 2 == 0){
+			i = i/2;
+			cycleLength++;
+		}else{
+			i = (3*i)+1;
+			cycleLength++;
+		}
+	}
+	return cycleLength;
+}
+
+
 // ------------
 // collatz_read
 // ------------
@@ -62,16 +79,8 @@ void collatz_solve (std::istream& r, std::ostream& w) {
 	}
 }
 
-int cycle_length(int i){
-	int cycleLength = 1;
-	while( i > 1){
-		if(i % 2 == 0){
-			i = i/2;
-			cycleLength++;
-		}else{
-			i = (3*i)+1;
-			cycleLength++;
-		}
-	}
-	return cycleLength;
+int main () {
+	using namespace std;	
+	collatz_solve(cin, cout);
+	return 0;
 }
