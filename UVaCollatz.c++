@@ -10,12 +10,14 @@
 #include <iostream> // endl, istream, ostream
 #include <utility> // make_pair, pair
 
-int cache[100000] = {0};
-
-
+int cache[100000];
+bool cacheStat[100000]={false};
+// ------------
+// collatz_read
+// ------------
 
 int cycle_length(int i){
-	if(i<100000 && cache[i]>0)
+	if(i<100000 && cacheStat[i])
 		return cache[i];
 	else if(i == 1)
 		return 1;
@@ -26,9 +28,7 @@ int cycle_length(int i){
 			return 2+cycle_length(i+(i>>1)+1);
 	}
 }
-// ------------
-// collatz_read
-// ------------
+
 std::pair<int, int> collatz_read (std::istream& r) {
 	int i;
 	r >> i;
@@ -51,7 +51,8 @@ int collatz_eval (int i, int j) {
 	int highest = 0;
 	while(i <= j){
 		int temp = cycle_length(i);
-		if(i <100000){
+		if(i <100000 && !cacheStat[i]){
+			cacheStat[i] = true;
 			cache[i]=temp;
 		}
 		if(temp > highest)
@@ -82,9 +83,9 @@ void collatz_solve (std::istream& r, std::ostream& w) {
 	}
 }
 
-
 int main () {
-	using namespace std;	
+	using namespace std;
 	collatz_solve(cin, cout);
 	return 0;
 }
+

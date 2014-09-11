@@ -58,6 +58,7 @@ void collatz_solve (std::istream& r, std::ostream& w);
 //--------------
 /**
 * @param i the number you wish to find the cycle length for
+* It is a recursive based function.
 */
 int cycle_length(int i);
 #endif // Collatz_h

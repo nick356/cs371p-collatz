@@ -12,6 +12,7 @@
 #include "Collatz.h"
 
 int cache[100000];
+bool cacheStat[100000]={false};
 // ------------
 // collatz_read
 // ------------
@@ -29,6 +30,9 @@ std::pair<int, int> collatz_read (std::istream& r) {
 // ------------
 int collatz_eval (int i, int j) {
 	assert(i>0 && j>0);
+	assert(i<1000000 && j<1000000);
+
+	//Switches variables using bit operators instead of creating a temp variable.
 	if(i>j){
 		j=i^j;
 		i=i^j;
@@ -37,7 +41,10 @@ int collatz_eval (int i, int j) {
 	int highest = 0;
 	while(i <= j){
 		int temp = cycle_length(i);
-		if(i <100000){
+		//If I is less than 100000 then we know it can be in the cache
+		//By having a cache to see if it has been set we avoid any numeric problems
+		if(i <100000 && !cacheStat[i]){
+			cacheStat[i] = true;
 			cache[i]=temp;
 		}
 		if(temp > highest)
@@ -68,8 +75,12 @@ void collatz_solve (std::istream& r, std::ostream& w) {
 	}
 }
 
+// ------------
+// cycle_lenth
+// ------------
 int cycle_length(int i){
-	if(i<100000 && cache[i]>0)
+	//We don't want to do any work if it has already been found.
+	if(i<100000 && cacheStat[i])
 		return cache[i];
 	else if(i == 1)
 		return 1;
@@ -80,3 +91,4 @@ int cycle_length(int i){
 			return 2+cycle_length(i+(i>>1)+1);
 	}
 }
+

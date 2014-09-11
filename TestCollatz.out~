@@ -1,0 +1,83 @@
+==24563== Memcheck, a memory error detector
+==24563== Copyright (C) 2002-2011, and GNU GPL'd, by Julian Seward et al.
+==24563== Using Valgrind-3.7.0 and LibVEX; rerun with -h for copyright info
+==24563== Command: TestCollatz
+==24563== 
+Running main() from gtest_main.cc
+[==========] Running 30 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 30 tests from Collatz
+[ RUN      ] Collatz.read_1
+[       OK ] Collatz.read_1 (18 ms)
+[ RUN      ] Collatz.read_2
+[       OK ] Collatz.read_2 (3 ms)
+[ RUN      ] Collatz.read_3
+[       OK ] Collatz.read_3 (3 ms)
+[ RUN      ] Collatz.eval_1
+[       OK ] Collatz.eval_1 (4 ms)
+[ RUN      ] Collatz.eval_2
+[       OK ] Collatz.eval_2 (2 ms)
+[ RUN      ] Collatz.eval_3
+[       OK ] Collatz.eval_3 (2 ms)
+[ RUN      ] Collatz.eval_4
+[       OK ] Collatz.eval_4 (2 ms)
+[ RUN      ] Collatz.eval_5
+[       OK ] Collatz.eval_5 (2 ms)
+[ RUN      ] Collatz.eval_6
+[       OK ] Collatz.eval_6 (1 ms)
+[ RUN      ] Collatz.eval_7
+[       OK ] Collatz.eval_7 (2 ms)
+[ RUN      ] Collatz.eval_8
+[       OK ] Collatz.eval_8 (2 ms)
+[ RUN      ] Collatz.print_1
+[       OK ] Collatz.print_1 (10 ms)
+[ RUN      ] Collatz.print_2
+[       OK ] Collatz.print_2 (2 ms)
+[ RUN      ] Collatz.print_3
+[       OK ] Collatz.print_3 (2 ms)
+[ RUN      ] Collatz.cycle_length1
+[       OK ] Collatz.cycle_length1 (1 ms)
+[ RUN      ] Collatz.cycle_length2
+[       OK ] Collatz.cycle_length2 (2 ms)
+[ RUN      ] Collatz.cycle_length3
+[       OK ] Collatz.cycle_length3 (2 ms)
+[ RUN      ] Collatz.cycle_length4
+[       OK ] Collatz.cycle_length4 (2 ms)
+[ RUN      ] Collatz.cycle_length5
+[       OK ] Collatz.cycle_length5 (2 ms)
+[ RUN      ] Collatz.cycle_length6
+[       OK ] Collatz.cycle_length6 (2 ms)
+[ RUN      ] Collatz.cycle_length7
+[       OK ] Collatz.cycle_length7 (2 ms)
+[ RUN      ] Collatz.cycle_length8
+[       OK ] Collatz.cycle_length8 (1 ms)
+[ RUN      ] Collatz.cycle_length9
+[       OK ] Collatz.cycle_length9 (1 ms)
+[ RUN      ] Collatz.cycle_length10
+[       OK ] Collatz.cycle_length10 (1 ms)
+[ RUN      ] Collatz.cycle_length11
+[       OK ] Collatz.cycle_length11 (2 ms)
+[ RUN      ] Collatz.cycle_length12
+[       OK ] Collatz.cycle_length12 (2 ms)
+[ RUN      ] Collatz.cycle_length13
+[       OK ] Collatz.cycle_length13 (2 ms)
+[ RUN      ] Collatz.solve1
+[       OK ] Collatz.solve1 (7 ms)
+[ RUN      ] Collatz.solve2
+[       OK ] Collatz.solve2 (205 ms)
+[ RUN      ] Collatz.solve3
+[       OK ] Collatz.solve3 (93 ms)
+[----------] 30 tests from Collatz (397 ms total)
+
+[----------] Global test environment tear-down
+[==========] 30 tests from 1 test case ran. (424 ms total)
+[  PASSED  ] 30 tests.
+==24563== 
+==24563== HEAP SUMMARY:
+==24563==     in use at exit: 0 bytes in 0 blocks
+==24563==   total heap usage: 1,274 allocs, 1,274 frees, 119,997 bytes allocated
+==24563== 
+==24563== All heap blocks were freed -- no leaks are possible
+==24563== 
+==24563== For counts of detected and suppressed errors, rerun with: -v
+==24563== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 2 from 2)

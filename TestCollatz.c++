@@ -83,6 +83,7 @@ TEST(Collatz, eval_8) {
 	ASSERT_EQ(21, v);
 }
 
+
 // -----
 // print
 // -----
@@ -169,15 +170,36 @@ TEST(Collatz, cycle_length12){
 	int v = cycle_length(16);
 	ASSERT_EQ(5,v);
 }
+
+TEST(Collatz, cycle_length13){
+	int v = cycle_length(987027);
+	ASSERT_EQ(122,v);
+}
 // -----
 // solve
 // -----
-TEST(Collatz, solve) {
+TEST(Collatz, solve1) {
 	std::istringstream r("1 10\n100 200\n201 210\n900 1000\n");
 	std::ostringstream w;
 	collatz_solve(r, w);
 	ASSERT_EQ("1 10 20\n100 200 125\n201 210 89\n900 1000 174\n", w.str());
 }
+
+TEST(Collatz, solve2){
+	std::istringstream r("57531 88198\n25786 89434\n111448 80015\n29418 66943\n19209 47970\n");
+	std::ostringstream w;
+	collatz_solve(r,w);
+	ASSERT_EQ("57531 88198 351\n25786 89434 351\n111448 80015 354\n29418 66943 340\n19209 47970 324\n",w.str());
+}
+
+TEST(Collatz, solve3){
+	std::istringstream r("70302 102195\n25114 4015\n70120 24426\n8887 44993\n62215 3902\n17177 49652\n30321 51476\n85443 74628\n60022 49611\n21868 51512\n67112 7699\n");
+	std::ostringstream w;
+	collatz_solve(r,w);
+	ASSERT_EQ("70302 102195 351\n25114 4015 282\n70120 24426 340\n8887 44993 324\n62215 3902 340\n17177 49652 324\n30321 51476 324\n85443 74628 351\n60022 49611 340\n21868 51512 324\n67112 7699 340\n",w.str());
+}
+
+
 
 /*
 % ls -al /usr/include/gtest/
