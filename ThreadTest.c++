@@ -9,9 +9,23 @@
 #include <cassert> // assert
 #include <iostream> // endl, istream, ostream
 #include <utility> // make_pair, pair
-#include "Collatz.h"
+#include <thread>
 
-int cache[100000];
+
+void cycle_length(int i, int* blar){
+	int cycleLength = 1;
+	while( i > 1){
+		if(i % 2 == 0){
+			i = i>>1;
+		}else{
+			i = i+(i>>1)+1;
+			cycleLength++;
+		}
+		cycleLength++;
+	}
+	*blar = cycleLength;
+}
+
 // ------------
 // collatz_read
 // ------------
@@ -29,22 +43,35 @@ std::pair<int, int> collatz_read (std::istream& r) {
 // ------------
 int collatz_eval (int i, int j) {
 	assert(i>0 && j>0);
+	int temp;
+	int tempI;
+	int x = 5;
+	int y = 6;
+	int* globalA;
+	int* globalB;
 	if(i>j){
-		j=i^j;
-		i=i^j;
-		j=i^j;	
+		j = i^j;
+		i = i^j;
+		j = i^j;	
 	}
+
+	tempI = i;
 	int highest = 0;
-	while(i <= j){
-		int temp = cycle_length(i);
-		if(i <100000){
-			cache[i]=temp;
-		}
-		if(temp > highest)
-			highest = temp;
+	temp = 0;
+	globalA = &x;
+	globalB = &y;
+	while(i <= tempI+((j-tempI)/2)){
+		cycle_length(i,globalA);
+		cycle_length(j-temp,globalB);
+		if(x > y && x > highest)
+			highest = x;
+		else if(y > x && y > highest)
+			highest = y;
+		else if(y == x && y > highest)
+			highest = y;
 		i++;
+		temp++;
 	}
-	
 	return highest;    
 }
 // -------------
@@ -68,15 +95,8 @@ void collatz_solve (std::istream& r, std::ostream& w) {
 	}
 }
 
-int cycle_length(int i){
-	if(i<100000 && cache[i]>0)
-		return cache[i];
-	else if(i == 1)
-		return 1;
-	else{
-		if(i % 2 == 0)
-			return 1+cycle_length(i>>1);
-		else
-			return 2+cycle_length(i+(i>>1)+1);
-	}
+int main () {
+	using namespace std;	
+	collatz_solve(cin, cout);
+	return 0;
 }
