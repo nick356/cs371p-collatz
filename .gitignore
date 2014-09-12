@@ -11,4 +11,6 @@
 *.h~
 *.gitignore~
 .*
+*.out~
+*.in~
 !/.gitignore
